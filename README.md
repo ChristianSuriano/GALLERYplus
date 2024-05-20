@@ -9,5 +9,7 @@ Sarà possibile aggiungere o eliminare le proprie foto in album prestabiliti (es
 #### Funzioni base
 
 **addPhoto** permette all'utente di aggiungere foto
+
 **removePhoto** permette all'utente di rimuovere foto
+
 **filterPhoto** permette all'utente di filtrare la foto per tag
