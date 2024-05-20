@@ -1,4 +1,4 @@
-class User {
+class ModelUser {
   constructor(name, surname, username, password, email) {
     this.id = Math.random();
     this.name = name;
