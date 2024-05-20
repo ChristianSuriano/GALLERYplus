@@ -6,11 +6,4 @@ class Album {
     this.listPhotos = listPhotos;
     this.date = date;
   }
-  filterByTag(tag) {
-    return this.listPhotos.filter((photo) => photo.tag === tag);
-  }
-
-  filterByAuthor(author) {
-    return this.listPhotos.filter((photo) => photo.author === author);
-  }
 }

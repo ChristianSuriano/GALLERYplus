@@ -1,0 +1,4 @@
+- Aggiornare metodo di random per garantire unicità tra id foto, user, e album
+- Aggiornare app.js
+- Verficare se servono più controller
+- Installare eslint/prettier
