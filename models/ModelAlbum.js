@@ -1,9 +1,9 @@
-class Album {
-  constructor(title, description, listPhotos, date) {
+class ModelAlbum {
+  constructor(title, description, date) {
     this.id = Math.random();
+    this.listPhotos = [];
     this.title = title;
     this.description = description;
-    this.listPhotos = listPhotos;
     this.date = date;
   }
 }

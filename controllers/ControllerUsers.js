@@ -21,7 +21,7 @@ class ControllerUsers {
       userToUpdate.email = email;
       return userToUpdate;
     }
-    return null; // Restituiamo null se l'utente non è stato trovato
+    else return null; // Restituiamo null se l'utente non è stato trovato
   }
 
   delete(id) {
