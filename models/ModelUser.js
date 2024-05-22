@@ -1,6 +1,6 @@
-class ModelUser {
+export default class ModelUser {
   constructor(name, surname, username, password, email) {
-    this.id = Math.random();
+    this.id = Generate.generateUUID();
     this.name = name;
     this.surname = surname;
     this.username = username;
