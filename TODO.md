@@ -2,3 +2,11 @@
 - Aggiornare app.js
 - Verficare se servono più controller
 - Installare eslint/prettier
+- Predisporre le funzioni nei controller per il findAll (ottenere tutti gli elementi presenti nella lista del controller)
+- Creare un album per ogni utente
+- Creare due foto per ogni utente
+- Modificare il titolo dell'album
+- Modificare il titolo di una foto
+- Eliminare una foto
+- Visualizzare tutte le foto presenti in un album
+- Visualizzare le informazioni di una singola foto
