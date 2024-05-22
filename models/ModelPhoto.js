@@ -1,19 +1,10 @@
-
-class Photo 
-{
-    constructor(id, userId, title, url, descrizione,tag) 
-    {
-      this.id = id;
-      this.userId = userId;
-      this.title = title;
-      this.url = url;
-      this.tag = tag;
-      this.descrizione = function ()
-      {
-        descrizione = console.log(`Questa foto è stata scattata: ${this.title} e a questo indirizzo: ${this.url}`);
-        return descrizione;
-      }; 
+import Generate from './utils/Generate.js';
+export default class ModelPhoto {
+    constructor(title, url, description, tag) {
+        this.id = Generate.generateUUID();
+        this.title = title;
+        this.url = url;
+        this.tag = tag;
+        this.description = description;
     }
 }
-
-
