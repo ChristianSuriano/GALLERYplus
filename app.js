@@ -1,11 +1,23 @@
+import ControllerUsers from "./controllers/ControllerUsers";
+import ControllerAlbums from "./controllers/ControllerAlbums";
+import ControllerPhoto from "./controllers/ControllerPhotos";
+
 class App {
+  #usersController;
+  #albumController;
+  #photoController;
   constructor() {
-    this.usersController = new ControllerUsers();
+    this.#usersController = new ControllerUsers();
+    this.#albumController = new ControllerAlbums();
+    this.#photoController = new ControllerPhoto();
   }
+
 
   // Esempio di utilizzo
   run() {
-    const user1 = this.usersController.create(
+    // Creare 2 utenti
+
+    const user1 = this.#usersController.create(
       "John",
       "Doe",
       "john_doe",
@@ -14,7 +26,7 @@ class App {
     );
     console.log("User created:", user1);
 
-    const user2 = this.usersController.create(
+    const user2 = this.#usersController.create(
       "Jane",
       "Smith",
       "jane_smith",
@@ -23,9 +35,12 @@ class App {
     );
     console.log("User created:", user2);
 
-    const userToUpdate = this.usersController.read(user1.id);
+    // Esempio di lettura utente per ID
+    const userToUpdate = this.#usersController.read(user1.id);
+
+    // Aggiorna i dati di un utente
     if (userToUpdate) {
-      this.usersController.update(
+      this.#usersController.update(
         userToUpdate.id,
         "Updated",
         "Name",
@@ -33,16 +48,15 @@ class App {
         "updated_password",
         "updated@example.com"
       );
-      console.log("User updated:", this.usersController.read(userToUpdate.id));
+      console.log("User updated:", userToUpdate);
     }
 
-    const userToDelete = this.usersController.read(user2.id);
-    if (userToDelete) {
-      this.usersController.delete(userToDelete.id);
-      console.log("User deleted:", userToDelete);
+    if (user2) {
+      this.#usersController.delete(user2.id);
+      console.log("User deleted:", user2);
     }
 
-    const loggedInUser = this.usersController.get(
+    const loggedInUser = this.#usersController.get(
       "updated_username",
       "updated_password"
     );
