@@ -1,4 +1,6 @@
-class ControllerUsers {
+import ModelUser from "../models/ModelUser";
+
+export default class ControllerUsers {
   #users = [];
 
   create(name, surname, username, password, email) {
@@ -20,8 +22,7 @@ class ControllerUsers {
       userToUpdate.password = password;
       userToUpdate.email = email;
       return userToUpdate;
-    }
-    else return null; // Restituiamo null se l'utente non è stato trovato
+    } else return null; // Restituiamo null se l'utente non è stato trovato
   }
 
   delete(id) {
@@ -29,9 +30,8 @@ class ControllerUsers {
   }
 
   get(username, password) {
-    const userFound = this.#users.find(
-      (user) => user.username === username && user.password === password
+    return this.#users.find(
+        (user) => user.username === username && user.password === password
     );
-    return userFound;
   }
 }
