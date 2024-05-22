@@ -1,44 +1,54 @@
-const photo = require('../Models/myPhoto.js');
+import ModelPhoto from "../models/ModelPhoto";
 
-class PhotoInteraction
-{
-    static createFoto(id, userId, title, url, descrizione,tag)
-    {
-      const newPhoto = new Photo(id, userId, title, url, descrizione,tag);
-      return newPhoto;
+export default class ControllerPhoto {
+    #photos = [];
+
+    create(title, url, description, tag) {
+        const photo = new ModelPhoto(title, url, description, tag);
+        this.#photos.push(photo);
+        return photo;
     }
 
-    static readPhoto(newPhoto)
-    {
-        return {
-                  id: newPhoto.id,
-                  userId: newPhoto.userId,
-                  tag: newPhoto.tag
-               };
+    read(id) {
+        return this.#photos.find((photo) => photo.id === id);
     }
 
-    static updatePhoto(newPhoto, title, tag, descrizione)
-    {
-      newPhoto.title = title !== undefined ? title : newPhoto.title; //Operatore ternari che fungono da if ? / : else.
-      newPhoto.tag = tag !== undefined ? tag : newPhoto.tag;
+    update(id, title, url, description, tag) {
+        // Cerchiamo la foto da aggiornare in base all'id
+        const photoToUpdate = this.#photos.find(photo => photo.id === id);
 
-      if (descrizione !== undefined) 
-      {
-            newPhoto.descrizione = function() 
-            {
-              console.log(descrizione);
-              return descrizione;
-            };
-            
-            return newPhoto;
-      }
-  
+        // Se la foto non è stata trovata, restituiamo null
+        if (!photoToUpdate) {
+            return null;
+        }
+
+        // Aggiorniamo le proprietà della foto solo se sono state fornite nuove informazioni
+        if (title !== undefined) {
+            photoToUpdate.title = title;
+        }
+
+        if (url !== undefined) {
+            photoToUpdate.url = url;
+        }
+
+        if (description !== undefined) {
+            photoToUpdate.description = description;
+        }
+
+        if (tag !== undefined) {
+            photoToUpdate.tag = tag;
+        }
+
+        // Restituiamo la foto aggiornata
+        return photoToUpdate;
     }
 
-    static deletePhotoById(newPhoto, id) {
-      const index = newPhoto.findIndex(photo => photo.id === id);
-      newPhoto.splice(index, 1);
+
+    delete(id) {
+        const index = this.#photos.findIndex(photo => photo.id === id);
+
+        if (index !== -1) {
+            this.#photos.splice(index, 1);
+        }
     }
-    
 }
-
