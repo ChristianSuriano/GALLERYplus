@@ -1,6 +1,6 @@
-import ModelPhoto from "../models/ModelPhoto";
+const ModelPhoto = require("../models/ModelPhoto");
 
-export default class ControllerPhoto {
+class ControllerPhotos {
     #photos = [];
 
     create(title, url, description, tag) {
@@ -52,3 +52,5 @@ export default class ControllerPhoto {
         }
     }
 }
+
+module.exports = ControllerPhotos;

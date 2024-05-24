@@ -1,4 +1,6 @@
-export default class ModelUser {
+const Generate = require("../utils/Generate");
+
+class ModelUser {
   constructor(name, surname, username, password, email) {
     this.id = Generate.generateUUID();
     this.name = name;
@@ -8,3 +10,5 @@ export default class ModelUser {
     this.email = email;
   }
 }
+
+module.exports = ModelUser;

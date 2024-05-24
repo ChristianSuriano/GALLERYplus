@@ -1,4 +1,6 @@
-export default class ModelAlbum {
+const Generate = require("../utils/Generate");
+
+class ModelAlbum {
   constructor(title, description, date) {
     this.id = Generate.generateUUID();
     this.listPhotos = [];
@@ -7,3 +9,5 @@ export default class ModelAlbum {
     this.date = date;
   }
 }
+
+module.exports = ModelAlbum;

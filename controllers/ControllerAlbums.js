@@ -1,6 +1,6 @@
-import ModelAlbum from "../models/ModelAlbum";
+const ModelAlbum = require("../models/ModelAlbum");
 
-export default class ControllerAlbums {
+class ControllerAlbums {
     #albums = [];
 
     createAlbum(title, description, date) {
@@ -42,3 +42,5 @@ export default class ControllerAlbums {
         return albumToUpdate;
     }
 }
+
+module.exports = ControllerAlbums;
