@@ -12,11 +12,9 @@ class App {
     this.#photoController = new ControllerPhoto();
   }
 
-
   // Esempio di utilizzo
   run() {
     // Creare 2 utenti
-
     const user1 = this.#usersController.create(
       "John",
       "Doe",
@@ -24,7 +22,7 @@ class App {
       "password123",
       "john@example.com"
     );
-    console.log("User created:", user1);
+    console.log("Utente creato:", user1);
 
     const user2 = this.#usersController.create(
       "Jane",
@@ -33,36 +31,39 @@ class App {
       "password456",
       "jane@example.com"
     );
-    console.log("User created:", user2);
+    console.log("Utente creato:", user2);
 
     // Esempio di lettura utente per ID
     const userToUpdate = this.#usersController.read(user1.id);
 
-    // Aggiorna i dati di un utente
+    // Aggiornare i dati di un utente
     if (userToUpdate) {
       this.#usersController.update(
         userToUpdate.id,
-        "Updated",
-        "Name",
-        "updated_username",
-        "updated_password",
-        "updated@example.com"
+        "NomeAggiornato",
+        "CognomeAggiornato",
+        "username_aggiornato",
+        "password_aggiornata",
+        "aggiornato@example.com"
       );
-      console.log("User updated:", userToUpdate);
+      console.log("Utente aggiornato:", userToUpdate);
     }
 
+    // Eliminare un utente
     if (user2) {
       this.#usersController.delete(user2.id);
-      console.log("User deleted:", user2);
+      console.log("Utente eliminato:", user2);
     }
 
+    // Esempio di login di un utente
     const loggedInUser = this.#usersController.get(
-      "updated_username",
-      "updated_password"
+      "username_aggiornato",
+      "password_aggiornata"
     );
-    console.log("Logged in user:", loggedInUser);
+    console.log("Utente loggato:", loggedInUser);
   }
 }
-// Esegui l'applicazione
+
+// Eseguire l'applicazione
 const myApp = new App();
 myApp.run();
