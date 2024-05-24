@@ -8,7 +8,6 @@ class App {
   #albumController;
   #photoController;
 
-  
   constructor() {
     this.#usersController = new ControllerUsers();
     this.#albumController = new ControllerAlbums();
@@ -64,6 +63,62 @@ class App {
       "password_aggiornata"
     );
     console.log("Utente loggato:", loggedInUser);
+
+    //Creare due foto per ogni utente
+    let photoSea = this.#photoController.create(
+      "mare in tempesta",
+      "descrizione della foto",
+      user1,
+      "url1",
+      "paesaggio"
+    );
+    console.log("Photo created:", photoSea);
+
+    let photoCat = this.#photoController.create(
+      "gatto nero",
+      "descrizione della foto",
+      user1,
+      "url2",
+      "animale"
+    );
+    console.log("Photo created:", photoCat);
+
+    let photoFamily = this.#photoController.create(
+      "foto famiglia",
+      "descrizione della foto",
+      user2,
+      "url3",
+      "famiglia"
+    );
+    console.log("Photo created:", photoFamily);
+
+    let photoFamily2 = this.#photoController.create(
+      "foto famiglia",
+      "descrizione della foto",
+      user2,
+      "url4",
+      "famiglia"
+    );
+    console.log("Photo created:", photoFamily2);
+
+    //Creare un album per ogni utente
+    let albumUser1 = this.#albumController.createAlbum(
+      "natura",
+      "un album sulla natura e sugli animali",
+      [photoSea, photoCat],
+      "24/05/24"
+    );
+    console.log("Album created:", albumUser1);
+
+    let albumUser2 = this.#albumController.createAlbum(
+      "family",
+      "un album sulla famiglia",
+      [photoFamily1, photoFamily2],
+      "20/05/24"
+    );
+    console.log("Album created:", albumUser2);
+
+    //Modificare il titolo dell'album
   }
 }
 
