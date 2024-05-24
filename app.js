@@ -1,15 +1,18 @@
-import ControllerUsers from "./controllers/ControllerUsers";
-import ControllerAlbums from "./controllers/ControllerAlbums";
-import ControllerPhoto from "./controllers/ControllerPhotos";
+const ControllerUsers = require("./controllers/ControllerUsers");
+const ControllerAlbums = require("./controllers/ControllerAlbums");
+const ControllerPhotos = require("./controllers/ControllerPhotos");
+const Generate = require("./utils/Generate");
 
 class App {
   #usersController;
   #albumController;
   #photoController;
+
+  
   constructor() {
     this.#usersController = new ControllerUsers();
     this.#albumController = new ControllerAlbums();
-    this.#photoController = new ControllerPhoto();
+    this.#photoController = new ControllerPhotos();
   }
 
 

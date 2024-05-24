@@ -1,6 +1,6 @@
-import ModelUser from "../models/ModelUser";
+const ModelUser = require("../models/ModelUser")
 
-export default class ControllerUsers {
+class ControllerUsers {
   #users = [];
 
   create(name, surname, username, password, email) {
@@ -35,3 +35,6 @@ export default class ControllerUsers {
     );
   }
 }
+
+
+module.exports = ControllerUsers;

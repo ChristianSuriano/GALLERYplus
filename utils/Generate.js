@@ -6,3 +6,5 @@ class Generate {
         });
     }
 }
+
+module.exports = Generate;
