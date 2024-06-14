@@ -1,8 +1,3 @@
-const ControllerUsers = require("./controllers/ControllerUsers");
-const ControllerAlbums = require("./controllers/ControllerAlbums");
-const ControllerPhotos = require("./controllers/ControllerPhotos");
-const Generate = require("./utils/Generate");
-
 class App {
   #usersController;
   #albumController;
@@ -14,8 +9,148 @@ class App {
     this.#photoController = new ControllerPhotos();
   }
 
-  // Esempio di utilizzo
+  registerAccount() {
+    const signupForm = document.getElementById("signup-form");
+    const name = signupForm.name.value;
+    const surname = signupForm.surname.value;
+    const username = signupForm.username.value;
+    const email = signupForm.email.value;
+    const password = signupForm.password.value;
+
+    // Verifica se i campi sono compilati correttamente
+    if (
+      name !== "" &&
+      surname !== "" &&
+      username !== "" &&
+      email !== "" &&
+      password !== ""
+    ) {
+      // Creazione di un nuovo utente
+      const user = this.#usersController.create(
+        name,
+        surname,
+        username,
+        password,
+        email
+      );
+
+      if (user) {
+        // Stampa un messaggio di conferma
+        document.getElementById(
+          "register-message"
+        ).innerHTML = `Account ${user.username} created successfully`;
+        console.log("account creato");
+        // Salvare la lista aggiornata nel localStorage
+      } else {
+        document.getElementById("register-message").innerHTML =
+          "Account already exists";
+        console.log("account esistente");
+      }
+    } else {
+      // Stampa un messaggio di errore
+      document.getElementById("register-message").innerHTML =
+        "Please fill in all fields";
+    }
+  }
+
+  initLogin() {
+    document
+      .getElementById("login-form")
+      .addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const username = document.getElementById("login-username").value;
+        const password = document.getElementById("login-password").value;
+
+        // Recuperare la lista degli account dal localStorage
+        let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+
+        let accountInLocalStorage = accounts.filter(
+          (value) => value.username === username
+        );
+
+        const user = this.#usersController.get(username, password);
+        if (user) {
+          // Stampa un messaggio di conferma
+          document.getElementById(
+            "login-message"
+          ).innerHTML = `Account ${user.username} logged in successfully`;
+          console.log("account loggato");
+          // Salvare la lista aggiornata nel localStorage
+        } else {
+          document.getElementById("login-message").innerHTML =
+            "Invalid username or password";
+          console.log("account non loggato");
+        }
+      });
+  }
+
+  // Creazione di un nuovo album
+  addAlbum() {
+    const formAlbum = document.getElementById("album-form");
+    const titleInput = document.querySelector("#title");
+    const descriptionInput = document.querySelector("#description");
+    const dateInput = document.querySelector("#date");
+
+    const title = titleInput.value;
+    const description = descriptionInput.value;
+    const date = dateInput.value;
+
+    // Recuperare la lista degli album dal localStorage
+    let albums = JSON.parse(localStorage.getItem("albums")) || [];
+
+    // Verifica se i campi sono compilati correttamente
+    if (title !== "" && description !== "" && date !== "") {
+      // Creazione di un nuovo album
+      const album = this.#albumController.createAlbum(title, description, date);
+
+      if (album) {
+        // Aggiungi il nuovo album alla lista degli album
+        albums.push(album);
+
+        // Salvare la lista aggiornata nel localStorage
+        localStorage.setItem("albums", JSON.stringify(albums));
+
+        // Stampa un messaggio di conferma
+        document.getElementById(
+          "add-album-message"
+        ).innerHTML = `Album ${album.title} created successfully`;
+        console.log("Album creato");
+      } else {
+        document.getElementById("add-album-message").innerHTML =
+          "Album already exists";
+        console.log("Album esistente");
+      }
+    }
+  }
+
+  // Punto di ingresso, viene avviato come se fosse il main
   run() {
+    console.log("app avviata");
+
+    // Ascolto del pulsante di registrazione
+    /*
+    document.getElementById("signup-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.registerAccount();
+    });*/
+
+    // Ascolto il pulsante di login
+
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.initLogin();
+    });
+
+    /*
+    // Ascolto il pulsante di aggiunta album
+    document.getElementById("album-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.addAlbum();
+    });*/
+  }
+
+  /*
     // Creare 2 utenti
     const user1 = this.#usersController.create(
       "John",
@@ -113,13 +248,10 @@ class App {
     let albumUser2 = this.#albumController.createAlbum(
       "family",
       "un album sulla famiglia",
-      [photoFamily1, photoFamily2],
+      [photoFamily, photoFamily2],
       "20/05/24"
     );
-    console.log("Album created:", albumUser2);
-
-    //Modificare il titolo dell'album
-  }
+    console.log("Album created:", albumUser2);*/
 }
 
 // Eseguire l'applicazione
