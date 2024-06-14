@@ -1,5 +1,3 @@
-const Generate = require("../utils/Generate");
-
 class ModelPhoto {
     constructor(title, url, description, tag) {
         this.id = Generate.generateUUID();
@@ -9,5 +7,3 @@ class ModelPhoto {
         this.description = description;
     }
 }
-
-module.exports = ModelPhoto;
