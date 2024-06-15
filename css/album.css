@@ -1,0 +1,21 @@
+.container-a {
+    max-width: 12800px;
+    max-height:12800px ;
+    margin-left: 440px;
+    
+}
+.album-tag {
+    margin-bottom: 20px;
+}
+.album-tag img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 5px;
+}
+
+.photo-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
