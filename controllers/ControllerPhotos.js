@@ -1,27 +1,25 @@
 class ControllerPhotos {
-  #photos;
-
-  ControllerPhotos() {
-    this.#photos = JSON.parse(localStorage.getItem("photos")) || [];
+  constructor() {
+    this.photos = this.loadLocalStorage() || []; // Inizializza la lista delle foto caricandola da localStorage se presente
   }
 
   create(title, url, description, tag) {
     let photo;
-    if (this.#photos.filter((photo) => photo.url === url).length === 0) {
+    if (this.photos.filter((photo) => photo.url === url).length === 0) {
       photo = new ModelPhoto(title, url, description, tag);
-      this.#photos.push(photo);
+      this.photos.push(photo);
       this.saveLocalStorage();
     }
     return photo;
   }
 
   read(id) {
-    return this.#photos.find((photo) => photo.id === id);
+    return this.photos.find((photo) => photo.id === id);
   }
 
   update(id, title, url, description, tag) {
     // Cerchiamo la foto da aggiornare in base all'id
-    const photoToUpdate = this.#photos.find((photo) => photo.id === id);
+    const photoToUpdate = this.photos.find((photo) => photo.id === id);
     this.saveLocalStorage();
     // Se la foto non è stata trovata, restituiamo null
     if (!photoToUpdate) {
@@ -50,7 +48,7 @@ class ControllerPhotos {
   }
 
   delete(id) {
-    const index = this.#photos.findIndex((photo) => photo.id === id);
+    const index = this.photos.findIndex((photo) => photo.id === id);
 
     // Se la foto non è stata trovata, restituiamo null
     if (index === -1) {
@@ -58,15 +56,17 @@ class ControllerPhotos {
     }
 
     // Rimuoviamo la foto dall'array
-    this.#photos.splice(index, 1);
+    this.photos.splice(index, 1);
     this.saveLocalStorage();
   }
 
+  // Metodo per salvare la lista degli album in localStorage
   saveLocalStorage() {
-    if (this.#photos.length === 0) {
-      localStorage.removeItem("photos");
-    } else {
-      localStorage.setItem("photos", JSON.stringify(this.#photos));
-    }
+    localStorage.setItem("photos", JSON.stringify(this.photos));
+  }
+
+  // Metodo per caricare la lista degli album da localStorage
+  loadLocalStorage() {
+    return JSON.parse(localStorage.getItem("photos"));
   }
 }

@@ -1,10 +1,5 @@
 class ControllerUsers {
   #users = [];
-  /*
-  constructor() {
-    let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
-    this.#users = accounts;
-  }*/
 
   create(name, surname, username, password, email) {
     let user;

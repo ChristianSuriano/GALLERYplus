@@ -1,76 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-.navContainer
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar {
-
-    background-color: #fff;
-   
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 20px;
-    border: 1px solid #000;
-    padding: 10px 20px;
-    color: #000;
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 12px 16px rgba(0, 0, 0, 0.1);
 }
 
-
-.navbar-brand {
-    font-size: 24px;
-    font-weight: bold;
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
-
-.navbar-nav {
-    overflow-x: hidden;
-    list-style: none;
-    margin-left: 50px;
-    padding: 0;
-    gap: 12px;
+nav li {
+  margin-right: 20px;
 }
 
-
-.navbar-nav li {
-   
-    display: inline;
+nav a {
+  color: #fff;
+  text-decoration: none;
 }
 
-
-.navbar-nav a {
-  
-    text-decoration: none;
-    color: #000;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+nav a:hover {
+  color: #ccc;
 }
 
-
-.navbar-nav a:hover {
-   
-    background-color: #000;
-    color:white;
+footer {
+  background-color: #c5c5c5;
+  color: #fff;
+  padding: 2em;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
 }
 
-
-@media (max-width: 600px) {
-    .navbar-brand {
-        font-size: 18px;
-    }
+button {
+  background-color: #f77f00;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 22vh;
 }
 
-
-@media (max-width: 600px) {
-    .navbar-nav {
-        flex-direction: column;
-        gap: 10px;
-    }
+button:hover {
+  background-color: #c36501; /* colore di sfondo quando si passa il mouse */
 }
 
+button:active {
+  background-color: #cf7514; /* colore di sfondo quando si clicca il bottone */
+}
 
+/* stile per l'hero dell'homepage*/
+.hero {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #333;
+  padding: 100px 0;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 12px 16px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-bottom: 100px;
+}
+
+.hero h1 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 3em;
+}
+
+.hero p {
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

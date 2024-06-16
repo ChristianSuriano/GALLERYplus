@@ -7,7 +7,8 @@ body {
   background-color: #f7f7f7;
 }
 
-.container {
+.container,
+.container-a {
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
@@ -20,6 +21,17 @@ body {
 }
 
 .signup-form,
+.login-form,
+.photo-form {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
 .login-form {
   max-width: 400px;
   margin: 40px auto;

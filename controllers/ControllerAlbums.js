@@ -1,45 +1,47 @@
 class ControllerAlbums {
-  #albums;
-
-  ControllerPhotos() {
-    this.#albums = JSON.parse(localStorage.getItem("albums")) || [];
+  constructor() {
+    this.albums = this.loadLocalStorage() || []; // Inizializza la lista degli album caricandola da localStorage se presente
   }
 
   createAlbum(title, description, date) {
-    let album;
-    if (this.#albums.filter((album) => album.title === title).length === 0) {
+    let album = this.albums.find((album) => album.title === title);
+    if (!album) {
       album = new ModelAlbum(title, description, date);
-      this.#albums.push(album);
+      this.albums.push(album);
       this.saveLocalStorage();
     }
     return album;
   }
 
   read(id) {
-    return this.#albums.find((album) => album.id === id);
+    return this.albums.find((album) => album.id === id);
   }
 
-  delete() {
-    this.retrieveLocalStorage();
-    this.#albums = this.#albums.filter((id) => newAlbum.id !== id);
+  delete(id) {
+    this.albums = this.albums.filter((album) => album.id !== id);
     this.saveLocalStorage();
   }
 
   addImage(id, image) {
-    //id: float, image: Photo
-    this.#albums[id].listPhotos.push(image);
-    this.saveLocalStorage();
+    const album = this.albums.find((album) => album.id === id);
+    if (album) {
+      album.listPhotos.push(image);
+      this.saveLocalStorage();
+    }
   }
 
-  deleteImage(id) {
-    this.#albums[id].listPhotos = this.#albums[id].listPhotos.filter(
-      (id) => id !== this.#albums[id].id
-    );
-    this.saveLocalStorage();
+  deleteImage(albumId, imageId) {
+    const albumIndex = this.albums.findIndex((album) => album.id === albumId);
+    if (albumIndex !== -1) {
+      this.albums[albumIndex].listPhotos = this.albums[
+        albumIndex
+      ].listPhotos.filter((photo) => photo.id !== imageId);
+      this.saveLocalStorage();
+    }
   }
 
   update(id, title, description, date) {
-    const albumToUpdate = this.#albums.find((album) => album.id === id);
+    const albumToUpdate = this.albums.find((album) => album.id === id);
 
     if (!albumToUpdate) {
       return null; // Restituisci null se l'album non è stato trovato
@@ -59,11 +61,13 @@ class ControllerAlbums {
     return albumToUpdate;
   }
 
+  // Metodo per salvare la lista degli album in localStorage
   saveLocalStorage() {
-    if (this.#albums.length === 0) {
-      localStorage.removeItem("albums");
-    } else {
-      localStorage.setItem("albums", JSON.stringify(this.#albums));
-    }
+    localStorage.setItem("albums", JSON.stringify(this.albums));
+  }
+
+  // Metodo per caricare la lista degli album da localStorage
+  loadLocalStorage() {
+    return JSON.parse(localStorage.getItem("albums"));
   }
 }
