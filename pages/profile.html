@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/profile.css" />
+    <link rel="stylesheet" type="text/css" href="../css/album.css" />
+    <link rel="stylesheet" type="text/css" href="../css/user.css" />
   </head>
   <header>
     <nav>
@@ -19,15 +21,31 @@
     </nav>
   </header>
   <body>
-    <footer></footer>
+    <div class="container-a">
+      <h1>Photo</h1>
+      <p>Upload Your Best Photos</p>
+      <form id="photo-form">
+        <input type="file" id="imageInput" multiple />
+        <input type="text" id="tagInput" placeholder="Enter tag" required />
+        <br /><br />
+        <input type="date" id="dateInput" placeholder="Select date" /><br />
+        <input
+          type="text"
+          id="descriptionInput"
+          placeholder="Enter description" />
+        <button id="uploadButton" class="upload-button" type="button">
+          Upload Images
+        </button>
+      </form>
+    </div>
+    <div id="albumContainer"></div>
 
-    <script src="../models/ModelUser.js"></script>
+    <footer></footer>
+    <script src="../utils/Generate.js"></script>
     <script src="../models/ModelAlbum.js"></script>
     <script src="../models/ModelPhoto.js"></script>
-    <script src="../controllers/ControllerUsers.js"></script>
     <script src="../controllers/ControllerAlbums.js"></script>
     <script src="../controllers/ControllerPhotos.js"></script>
-    <script src="../utils/Generate.js"></script>
-    <script src="../app.js"></script>
+    <script src="../Photo.js"></script>
   </body>
 </html>
