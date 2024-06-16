@@ -1,11 +1,16 @@
-const ModelUser = require("../models/ModelUser")
-
 class ControllerUsers {
   #users = [];
 
   create(name, surname, username, password, email) {
-    const user = new ModelUser(name, surname, username, password, email);
-    this.#users.push(user);
+    let user;
+    if (
+      this.#users.filter((element) => element.username === username).length ===
+      0
+    ) {
+      user = new ModelUser(name, surname, username, password, email);
+      this.#users.push(user);
+      this.saveLocalStorage();
+    }
     return user;
   }
 
@@ -21,20 +26,23 @@ class ControllerUsers {
       userToUpdate.username = username;
       userToUpdate.password = password;
       userToUpdate.email = email;
+      this.saveLocalStorage();
       return userToUpdate;
     } else return null; // Restituiamo null se l'utente non è stato trovato
   }
 
   delete(id) {
     this.#users = this.#users.filter((user) => user.id !== id);
+    this.saveLocalStorage();
   }
 
   get(username, password) {
     return this.#users.find(
-        (user) => user.username === username && user.password === password
+      (user) => user.username === username && user.password === password
     );
   }
+
+  saveLocalStorage() {
+    localStorage.setItem("accounts", JSON.stringify(this.#users));
+  }
 }
-
-
-module.exports = ControllerUsers;
