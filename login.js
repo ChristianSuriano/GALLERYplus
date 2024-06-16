@@ -18,7 +18,7 @@ class Login {
         let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
 
         // Verificare se la lista degli account esiste
-        if (!accounts) {
+        if (!accounts.length) {
           document.getElementById("login-message").innerHTML =
             "No accounts found";
           return;
@@ -32,7 +32,7 @@ class Login {
         // Verificare se l'account esiste
         if (!accountInLocalStorage.length) {
           document.getElementById("login-message").innerHTML =
-            "Invalid username or password";
+            "Username o password non validi";
           return;
         }
 
@@ -40,7 +40,7 @@ class Login {
         const user = accountInLocalStorage[0];
         if (user.password !== password) {
           document.getElementById("login-message").innerHTML =
-            "Invalid username or password";
+            "Username o password non validi";
           return;
         }
 
@@ -48,7 +48,10 @@ class Login {
         document.getElementById(
           "login-message"
         ).innerHTML = `Account ${user.username} logged in successfully`;
-        console.log("account loggato");
+        console.log("account loggato con successo!");
+
+        // Reindirizza alla pagina profilo.html
+        window.location.href = "profilo.html";
       });
   }
 
