@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const controllerPhotos = new ControllerPhotos();
   const imageInput = document.getElementById("imageInput");
   const tagInput = document.getElementById("tagInput");
   const dateInput = document.getElementById("dateInput");
@@ -36,7 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (file.type.startsWith("image/")) {
         const reader = new FileReader();
         reader.onload = (e) => {
-          addImageToAlbum(e.target.result, tag, date, description);
+          const photo = controllerPhotos.create(
+            "Default Title",
+            e.target.result,
+            description,
+            tag
+          );
+          addImageToAlbum(photo.id, e.target.result, tag, date, description);
         };
         reader.readAsDataURL(file);
       } else {
@@ -47,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resetInputs();
   });
 
-  function addImageToAlbum(imageSrc, tag, date, description) {
+  function addImageToAlbum(photoId, imageSrc, tag, date, description) {
     let tagContainer = document.querySelector(`.album-tag[data-tag="${tag}"]`);
 
     if (!tagContainer) {
@@ -64,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const photoContainer = document.createElement("div");
     photoContainer.classList.add("photo-info");
+    photoContainer.setAttribute("data-id", photoId);
 
     const img = document.createElement("img");
     img.src = imageSrc;
@@ -72,13 +80,37 @@ document.addEventListener("DOMContentLoaded", () => {
     photoDate.textContent = `Date: ${date}`;
 
     const photoDescription = document.createElement("p");
-    photoDescription.textContent = `Description: ${description}`;
+    photoDescription.innerHTML = `Description: <span contenteditable="true">${description}</span> <button class="save-description">Save</button>`;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-photo");
 
     photoContainer.appendChild(img);
     photoContainer.appendChild(photoDate);
     photoContainer.appendChild(photoDescription);
+    photoContainer.appendChild(deleteButton);
 
     tagContainer.appendChild(photoContainer);
+
+    // Event listener per salvare la nuova descrizione
+    const saveButton = photoDescription.querySelector(".save-description");
+    saveButton.addEventListener("click", function () {
+      const newDescription = photoDescription.querySelector("span").innerText;
+      controllerPhotos.update(
+        photoId,
+        undefined,
+        undefined,
+        newDescription,
+        undefined
+      );
+    });
+
+    // Event listener per eliminare la foto
+    deleteButton.addEventListener("click", function () {
+      controllerPhotos.delete(photoId);
+      photoContainer.remove();
+    });
   }
 
   function resetInputs() {

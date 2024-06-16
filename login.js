@@ -51,7 +51,7 @@ class Login {
         console.log("account loggato con successo!");
 
         // Reindirizza alla pagina profilo.html
-        window.location.href = "profilo.html";
+        window.location.href = "profile.html";
       });
   }
 
