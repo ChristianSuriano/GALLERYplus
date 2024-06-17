@@ -18,12 +18,9 @@ class ControllerPhotos {
   }
 
   update(id, title, url, description, tag) {
-    // Cerchiamo la foto da aggiornare in base all'id
     const photoToUpdate = this.photos.find((photo) => photo.id === id);
-    this.saveLocalStorage();
-    // Se la foto non è stata trovata, restituiamo null
     if (!photoToUpdate) {
-      return null;
+      return null; // Restituisci null se la foto non è stata trovata
     }
 
     // Aggiorniamo le proprietà della foto solo se sono state fornite nuove informazioni
@@ -42,30 +39,27 @@ class ControllerPhotos {
     if (tag !== undefined) {
       photoToUpdate.tag = tag;
     }
+
     this.saveLocalStorage();
-    // Restituiamo la foto aggiornata
-    return photoToUpdate;
+    return photoToUpdate; // Restituiamo la foto aggiornata
   }
 
   delete(id) {
     const index = this.photos.findIndex((photo) => photo.id === id);
-
-    // Se la foto non è stata trovata, restituiamo null
     if (index === -1) {
-      return null;
+      return null; // Restituisci null se la foto non è stata trovata
     }
 
-    // Rimuoviamo la foto dall'array
-    this.photos.splice(index, 1);
+    this.photos.splice(index, 1); // Rimuoviamo la foto dall'array
     this.saveLocalStorage();
   }
 
-  // Metodo per salvare la lista degli album in localStorage
+  // Metodo per salvare la lista delle foto in localStorage
   saveLocalStorage() {
     localStorage.setItem("photos", JSON.stringify(this.photos));
   }
 
-  // Metodo per caricare la lista degli album da localStorage
+  // Metodo per caricare la lista delle foto da localStorage
   loadLocalStorage() {
     return JSON.parse(localStorage.getItem("photos"));
   }
