@@ -1,11 +1,3 @@
-;; - Aggiornare metodo di random per garantire unicità tra id foto, user, e album
-;; - Aggiornare app.js
-;; - Verficare se servono più controller
-;; - Modificare il titolo dell'album
-;; - Modificare il titolo di una foto
-;; - Eliminare una foto
-;; - Visualizzare tutte le foto presenti in un album
-;; - login che si collega alla pagina profilo
+- Questa e' una to-do list dove aggiungere le task da completare
 
-- Creare due foto per ogni utente
-- Visualizzare le informazioni di una singola foto (aggiungere titolo)
+* Migliorare la comunicazione e il teamworking!!!
