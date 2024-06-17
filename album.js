@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
             )
             .join("")}
         </ul>
-        <hr>
       `;
       albumsList.appendChild(albumElement);
 
@@ -66,5 +65,3 @@ document.addEventListener("DOMContentLoaded", function () {
     imageForm.reset();
   });
 });
-
-//localStorage.clear();
