@@ -1,28 +1,30 @@
-(Valerio) //Create New Album
-fix descrizione CSS come nella "Photo"
+//Create New Album
 
-(VINCENZO) //Add Image to Album [[[(+By URL & LocalFiles)]]]
+V - (Valerio) fix descrizione CSS come nella "Photo"
 
-- add Title:
-- add Enter Tag:
-- add Description:
-- add Date:
+//Add Image to Album
 
-(CRISTIAN) //Photo (Debug funzione #NON FUNZIONANTE)
-change: funzione Enter Tag: NON DEVE ASSOCIARE NOME E NON DEVE MERGIARE NELL'ALBUM
+V - (Valerio) - [[[(+By URL & LocalFiles)]]]
+V - (Valerio) - add Title:
+V - (Valerio) - add Enter Tag:
+V - (Valerio) - add Description:
+V - (Valerio) - add Date:
 
-- add Title:
-- [[[(+By URL & LocalFiles)]]]
+//Photo
+
+X - (Cristian) - (Debug funzione #NON FUNZIONANTE)
+V - (Valerio) - add Title:
+V - (Valerio) - [[[(+By URL & LocalFiles)]]]
 
 //OUTPUT
 
-(MIRIANA) creare una griglia simile ad instagram dove verranno caricate successivamente album e foto
+x - (Miriana) creare una griglia simile ad instagram dove verranno caricate successivamente album e foto
 
-(FRANCESCO) - elenco puntato
+V - (Valerio) - elenco puntato
 
-(FRANCESCO) + modificare descrizione
-(FRANCESCO) + modificare data  
-(FRANCESCO) + modifica tag (solo foto)
-(FRANCESCO) + modifica titolo (solo foto perchè album già presente)
-(FRANCESCO) + eliminazione album
-(FRANCESCO) + eliminazione foto
+x - (Francesco) + modificare descrizione
+x - (Francesco) + modificare data  
+x - (Francesco) + modifica tag (solo foto)
+x - (Francesco) + modifica titolo (solo foto perchè album già presente)
+x - (Francesco) + eliminazione album
+x - (Francesco) + eliminazione foto

@@ -11,23 +11,22 @@ document.addEventListener("DOMContentLoaded", function () {
       const albumElement = document.createElement("div");
       albumElement.innerHTML = `
         <h3>
-          <span class="album-title" contenteditable="true">${album.title}</span>
-          <button class="save-title">Save</button>
-        </h3>
-        <p>Description: ${album.description}</p>
-        <p>Date: ${album.date}</p>
-        <p>ID: ${album.id}</p>
-        <h4>Photos:</h4>
-        <ul>
-          ${album.listPhotos
-            .map(
-              (photo) =>
-                `<li><img src="${photo}" style="max-width: 200px;"></li>`
-            )
-            .join("")}
-        </ul>
-        <hr>
-      `;
+        <span class="album-title" contenteditable="true">${album.title}</span>
+        <button class="save-title">Save</button>
+      </h3>
+      <p>Description: ${album.description}</p>
+      <p>Date: ${album.date}</p>
+      <p>ID: ${album.id}</p>
+      <h4>Photos:</h4>
+      <ul style="list-style-type: none;">
+        ${album.listPhotos
+          .map(
+            (photo) => `<li><img src="${photo}" style="max-width: 200px;"></li>`
+          )
+          .join("")}
+      </ul>
+      <hr>
+    `;
       albumsList.appendChild(albumElement);
 
       // Event listener per salvare il nuovo titolo
