@@ -4,8 +4,10 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #f7f7f7;
 }
 
+/* BARRA DI NAVIGAZIONE*/
 header {
   background-color: #333;
   color: #fff;
@@ -36,6 +38,7 @@ nav a:hover {
   color: #ccc;
 }
 
+/* FOOTER */
 footer {
   background-color: #c5c5c5;
   color: #fff;
@@ -48,8 +51,9 @@ footer {
   z-index: 0;
 }
 
+/* BOTTONI GENERICI */
 button {
-  background-color: #f77f00;
+  background-color: #54b7d5;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -59,14 +63,10 @@ button {
 }
 
 button:hover {
-  background-color: #c36501; /* colore di sfondo quando si passa il mouse */
+  background-color: #1f8bac; /* colore di sfondo quando si passa il mouse */
 }
 
-button:active {
-  background-color: #cf7514; /* colore di sfondo quando si clicca il bottone */
-}
-
-/* stile per l'hero dell'homepage*/
+/* HERO */
 .hero {
   background-color: rgba(255, 255, 255, 0.95);
   color: #333;
@@ -85,11 +85,13 @@ button:active {
 }
 
 .hero p {
-  color: #666;
+  color: #e88e45;
   max-width: 600px;
   margin: 0 auto;
   font-size: 1.2em;
 }
+
+/* IMMAGINE HERO */
 .center {
   display: block;
   margin-left: auto;
