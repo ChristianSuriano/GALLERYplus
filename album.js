@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Invio del form per creare un album
   albumForm.addEventListener("submit", function (event) {
     event.preventDefault();
-    const title = document.getElementById("title").value;
-    const description = document.getElementById("description").value;
-    const date = document.getElementById("date").value;
+    const title = document.getElementById("albumTitle").value;
+    const description = document.getElementById("albumDescription").value;
+    const date = document.getElementById("albumDate").value;
     controller.createAlbum(title, description, date);
     displayAlbums();
     albumForm.reset();
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
   imageForm.addEventListener("submit", function (event) {
     event.preventDefault();
     const albumId = document.getElementById("albumId").value;
-    const image = document.getElementById("image").value;
+    const image = document.getElementById("imageUrl").value;
     controller.addImage(albumId, image);
     displayAlbums();
     imageForm.reset();
