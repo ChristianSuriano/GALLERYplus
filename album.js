@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     const albumId = document.getElementById("albumId").value;
     const image = document.getElementById("imageUrl").value;
+
     controller.addImage(albumId, image);
     displayAlbums();
     imageForm.reset();

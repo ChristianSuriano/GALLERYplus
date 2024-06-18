@@ -71,8 +71,11 @@ textarea {
 }
 
 #albumsList img {
-  width: 5vh;
+  width: 10vh;
   transition: width 0.3s;
+  filter: blur(0);
+  display: inline-block;
+  margin: 5px;
 }
 
 #albumsList img:hover {
@@ -95,3 +98,29 @@ textarea {
   font-size: 16px;
   margin-bottom: 20px;
 }
+
+/* CAROSELLO FOTO */
+.carousel-container {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 800px;
+  height: 400px;
+  margin: 0 auto;
+  overflow: auto;
+  margin-bottom: 10vh;
+}
+
+.carousel-container img {
+  width: 100%;
+  height: 100%;
+  float: left;
+}
+
+.carousel-container img {
+  transition: transform 0.5s;
+}
+
+/* footer {
+  margin-top: 50px; /* Spazio tra il carosello e il footer 
+} */
