@@ -27,88 +27,56 @@
       <div class="container-a">
         <h2>Create New Album</h2>
         <form id="albumForm">
-          <label for="albumTitle">Title:</label>
-          <input type="text" id="albumTitle" name="title" /><br /><br />
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required /><br /><br />
 
-          <label for="albumDescription">Description:</label>
-          <input
-            type="text"
-            id="albumDescription"
-            placeholder="Enter description" />
-          <br /><br />
+          <label for="description">Description:</label><br />
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            cols="50"></textarea
+          ><br /><br />
 
-          <label for="albumDate">Date:</label>
-          <input type="date" id="albumDate" name="date" /><br /><br />
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" /><br /><br />
 
           <button type="submit" class="upload-button">Create Album</button>
         </form>
       </div>
 
+
+
+
       <div class="container-a">
         <h2>Add Image to Album</h2>
         <form id="imageForm">
-          <label for="imageTitle">Title:</label>
-          <input type="text" id="imageTitle" name="title" /><br /><br />
-
-          <label for="imageTag">Tag:</label>
-          <input type="text" id="imageTag" placeholder="Enter tag" />
-          <br /><br />
           <label for="albumId">Album ID:</label>
-          <input type="text" id="albumId" name="albumId" /><br /><br />
+          <input type="text" id="albumId" name="albumId" required /><br /><br />
 
-          <label for="imageUrl">Image URL:</label>
-          <input type="text" id="imageUrl" name="image" /><br /><br />
-
-          <label for="imageDate">Date:</label>
-          <input type="date" id="imageDate" placeholder="Select date" /><br />
-
-          <label for="imageDescription">Description:</label>
-          <input
-            type="text"
-            id="imageDescription"
-            placeholder="Enter description" />
+          <label for="image">Image URL:</label>
+          <input type="text" id="image" name="image" required /><br /><br />
 
           <button type="submit" class="upload-button">Add Image</button>
         </form>
       </div>
 
-      <!--  
-      <div class="container-a">
-        <h2>Photo</h2>
-        <p>Carica foto singolarmente</p>
-        <form id="photo-form">
-          <label for="photoTitle">Title:</label>
-          <input type="text" id="photoTitle" name="title" /><br /><br />
-          <input type="file" id="photoImageInput" multiple />
-
-          <label for="photoImageUrl">Image URL:</label>
-          <input type="text" id="photoImageUrl" name="image" /><br /><br />
-
-          <label for="photoTag">Tag:</label>
-          <input type="text" id="photoTag" placeholder="Enter tag" />
-          <br /><br />
-          <label for="photoDate">Date:</label>
-          <input type="date" id="photoDate" placeholder="Select date" /><br />
-
-          <label for="photoDescription">Description:</label>
-          <input
-            type="text"
-            id="photoDescription"
-            placeholder="Enter description"
-          />
-
-          <button id="uploadButton" class="upload-button" type="button">
-            Upload Images
-          </button>
-        </form>
-        -->
+          
+          <div class="container-a">
+            <h2>Add Image at your profile</h2>
+            <input type="file" id="imageInput" multiple>
+            <input type="text" id="tagInput" placeholder="Enter title"> <br><br>
+            <input type="date" id="dateInput" placeholder="Select date"><br>
+            <input type="text" id="descriptionInput" placeholder="Enter description">
+            <button id="uploadButton">Upload Images</button>    
+         </div>
     </div>
 
-    <div class="carousel-container">
-      <div class="item">
-        <div id="albumsList">
-          <!-- Display albums-->
-        </div>
+    <div id="albumContainer"></div>
+
+    <div class="item">
+      <div id="albumsList">
+      
       </div>
     </div>
 
@@ -119,7 +87,8 @@
     <script src="../models/ModelPhoto.js"></script>
     <script src="../controllers/ControllerAlbums.js"></script>
     <script src="../controllers/ControllerPhotos.js"></script>
-    <script src="../photo.js"></script>
+    <script src="../InsertFoto.js"></script>
     <script src="../album.js"></script>
   </body>
 </html>
+
