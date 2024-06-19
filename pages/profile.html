@@ -27,8 +27,8 @@
       <div class="container-a">
         <h2>Create New Album</h2>
         <form id="albumForm">
-          <label for="albumTitle">Title:</label>
-          <input type="text" id="albumTitle" name="title" /><br /><br />
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required /><br /><br />
 
           <label for="albumDescription">Description:</label>
           <input
@@ -38,8 +38,8 @@
           />
           <br /><br />
 
-          <label for="albumDate">Date:</label>
-          <input type="date" id="albumDate" name="date" /><br /><br />
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" /><br /><br />
 
           <button type="submit" class="upload-button">Create Album</button>
         </form>
@@ -48,15 +48,11 @@
       <div class="container-a">
         <h2>Add Image to Album</h2>
         <form id="imageForm">
-          <label for="imageTitle">Title:</label>
-          <input type="text" id="imageTitle" name="title" /><br /><br />
-
-          <label for="imageTag">Tag:</label>
-          <input type="text" id="imageTag" placeholder="Enter tag" />
-          <br /><br />
           <label for="albumId">Album ID:</label>
-          <input type="text" id="albumId" name="albumId" /><br /><br />
+          <input type="text" id="albumId" name="albumId" required /><br /><br />
 
+          <label for="image">Image URL:</label>
+          <input type="text" id="image" name="image" required /><br /><br />
           <label for="imageUrl">Image URL:</label>
           <input type="text" id="imageUrl" name="image" /><br /><br />
 
@@ -74,7 +70,6 @@
         </form>
       </div>
 
-      <!--  
       <div class="container-a">
         <h2>Photo</h2>
         <p>Carica foto singolarmente</p>
@@ -114,6 +109,10 @@
       </div>
     </div>
 
+    <div id="albumContainer"></div>
+
+    <div class="containerAlbumList"><div id="albumsList"></div></div>
+
     <footer></footer>
 
     <script src="../utils/Generate.js"></script>
@@ -121,7 +120,7 @@
     <script src="../models/ModelPhoto.js"></script>
     <script src="../controllers/ControllerAlbums.js"></script>
     <script src="../controllers/ControllerPhotos.js"></script>
-    <script src="../photo.js"></script>
+    <script src="../InsertFoto.js"></script>
     <script src="../album.js"></script>
   </body>
 </html>
