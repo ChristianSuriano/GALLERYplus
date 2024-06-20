@@ -31,12 +31,11 @@
           <input type="text" id="title" name="title" required /><br /><br />
 
           <label for="description">Description:</label><br />
-          <input
-            type = "text"
+          <textarea
             id="description"
             name="description"
             rows="4"
-            cols="50"></input>
+            cols="50"></textarea
           ><br /><br />
 
           <label for="date">Date:</label>
@@ -62,6 +61,7 @@
         </form>
       </div>
 
+      
           
           <div class="container-a">
             <h2>Add Image at your profile</h2>
@@ -84,12 +84,11 @@
     <footer></footer>
 
     <script src="../utils/Generate.js"></script>
-    <script src="../models/ModelAlbum.js"></script>
-    <script src="../models/ModelPhoto.js"></script>
-    <script src="../controllers/ControllerAlbums.js"></script>
-    <script src="../controllers/ControllerPhotos.js"></script>
+    <script src="../album/ModelAlbum.js"></script>
+    <script src="../photo/ModelPhoto.js"></script>
+    <script src="../album/ControllerAlbums.js"></script>
+    <script src="../photo/ControllerPhotos.js"></script>
     <script src="../InsertFoto.js"></script>
-    <script src="../album.js"></script>
+    <script src="../album.js" ></script>
   </body>
 </html>
-
