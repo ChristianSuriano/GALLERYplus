@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const controller = new ControllerAlbums();
   const albumForm = document.getElementById("albumForm");
   const imageForm = document.getElementById("imageForm");
+  const deleteForm = document.getElementById("deleteForm");
   const albumsList = document.getElementById("albumsList");
- 
 
   // Funzione per visualizzare gli album
   function displayAlbums() {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             )
             .join("")}
         </ul>
-          <button class="remove-button">Cancella</button>
+        <button class="remove-button" data-id="${album.id}">Cancella</button>
       `;
       albumsList.appendChild(albumElement);
 
@@ -44,14 +44,28 @@ document.addEventListener("DOMContentLoaded", function () {
         controller.update(album.id, newTitle, newDescription, newDate); // Pass the updated values to the update method
         displayAlbums();
       });
+
+      // Event listener per eliminare l'album
+      const removeButton = albumElement.querySelector(".remove-button");
+      removeButton.addEventListener("click", function () {
+        const albumId = parseInt(removeButton.getAttribute("data-id"));
+        controller.delete(albumId);
+        albumsList.removeChild(albumElement); // Rimuove l'elemento dall'interfaccia
+      });
     });
   }
 
   // Visualizzazione iniziale degli album
   displayAlbums();
 
-  // Elimina un album
-  
+  // Event listener per eliminare un album tramite il form di eliminazione
+  deleteForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const albumId = parseInt(document.getElementById("deleteAlbumId").value);
+    controller.delete(albumId);
+    displayAlbums();
+    deleteForm.reset();
+  });
 
   // Invio del form per creare un album
   albumForm.addEventListener("submit", function (event) {
@@ -74,3 +88,4 @@ document.addEventListener("DOMContentLoaded", function () {
     imageForm.reset();
   });
 });
+
