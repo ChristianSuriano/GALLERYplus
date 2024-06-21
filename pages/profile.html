@@ -5,95 +5,107 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/profile.css" />
     <link rel="stylesheet" type="text/css" href="../css/album.css" />
     <link rel="stylesheet" type="text/css" href="../css/user.css" />
   </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Homepage</a></li>
-          <li><a href="profile.html">Profile</a></li>
-          <li><a href="register.html">Sign Up</a></li>
-          <li><a href="login.html">Login</a></li>
-        </ul>
-      </nav>
-    </header>
+  <body><header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Homepage</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="register.html">Sign Up</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Contenuto principale -->
-    <div class="container-album">
-      <div class="container-a">
-        <h2>Create New Album</h2>
-        <form id="albumForm">
-          <label for="title">Title:</label>
-          <input type="text" id="title" name="title" required /><br /><br />
+  <!-- creare album -->
+  <div class="container-album">
+    <div class="container-a">
+      <h2>Crea un Album</h2>
+      <form id="albumForm">
+        <input type="text" id="title" name="title" placeholder="inserisci il tuo Titolo" required /><br />
 
-          <label for="albumDescription">Description:</label>
-          <input
-            type="text"
-            id="albumDescription"
-            placeholder="Enter description"
-          />
-          <br /><br />
+        <input
+          type="text"
+          id="albumDescription"
+          placeholder="inserisci una Descrizione"
+        />
+        <br />
 
-          <label for="date">Date:</label>
-          <input type="date" id="date" name="date" /><br /><br />
+        <input type="date" id="date" name="date" /><br />
 
-          <button type="submit" class="upload-button">Create Album</button>
-        </form>
-      </div>
+        <button type="submit" class="upload-button">Crea</button>
+      </form>
+    </div>
+<!--/////////////////////////////////////////////////////////-->
+    <!--aggiungi immagine ad album-->
 
-      <div class="container-a">
-        <h2>Add Image to Album</h2>
-        <form id="imageForm">
-          <label for="albumId">Album ID:</label>
-          <input type="text" id="albumId" name="albumId" required /><br /><br />
+<div class="container-a">
+      <h2>aggiungi un'immagine al tuo Album</h2>
+      <form id="imageForm">
+        <input type="text" id="albumId" name="albumId" placeholder="ID Album " /><br />
 
-          <label for="image">Image URL:</label>
-          <input type="text" id="image" name="image" required /><br /><br />
+        <input type="text" id="image" name="image" placeholder="URL immagine" required /><br />
+        
 
-          <label for="imageDate">Date:</label>
-          <input type="date" id="imageDate" placeholder="Select date" /><br />
+        <input type="date" id="imageDate" placeholder="Data" /><br />
 
-          <label for="imageDescription">Description:</label>
-          <input
-            type="text"
-            id="imageDescription"
-            placeholder="Enter description"
-          />
+        <input
+          type="text"
+          id="imageDescription"
+          placeholder="inserisci una Descrizione"
+        />
 
-          <button type="submit" class="upload-button">Add Image</button>
-        </form>
-      </div>
+        <button type="submit" class="upload-button">Crea</button>
+      </form>
+    </div>
+<!--agiungi fotooooooooooooooooooooooooooooooooooo-->
+    <div class="container-a">
+      <h2>Aggiungi una foto al profilo</h2>
+      <form id="photo-form">
+        <input type="text" id="photoTitle" name="title" placeholder="titolo Foto"/><br />
+        <input type="file" id="photoImageInput" multiple />
 
-      <div class="container-a">
-        <h2>Add Image to Profile</h2>
-        <input type="file" id="imageInput" multiple />
-        <input type="text" id="tagInput" placeholder="Enter title" /><br /><br />
-        <input type="date" id="dateInput" placeholder="Select date" /><br />
-        <input type="text" id="descriptionInput" placeholder="Enter description" />
-        <button id="uploadButton">Upload Images</button>
+        <input type="text" id="photoImageUrl" name="image" placeholder="URL immagine"/><br />
+
+        <input type="text" id="photoTag" placeholder="tagga tagga!" placeholder="inserisci un tag" />
+        <br />
+        <input type="date" id="photoDate" placeholder="scegli una Data" /><br />
+
+        <input
+          type="text"
+          id="photoDescription"
+          placeholder="inserisci una Descrizione"
+        />
+
+        <button id="uploadButton" class="upload-button" type="button">
+Crea          </button>
+      </form>
+  </div>
+ 
+  <div class="carousel-container">
+    <div class="item">
+      <div id="albumsList">
+        <!-- Display albums-->
       </div>
     </div>
+  </div>
 
-    <div class="carousel-container">
-      <div class="item">
-        <div id="albumsList">
-          <!-- Display albums -->
-        </div>
-      </div>
-    </div>
+  <div id="albumContainer"></div>
 
-    <footer></footer>
+  <div class="containerAlbumList"><div id="albumsList"></div></div>
 
-    <script src="../utils/Generate.js"></script>
-    <script src="../album/ModelAlbum.js"></script>
-    <script src="../photo/ModelPhoto.js"></script>
-    <script src="../album/ControllerAlbums.js"></script>
-    <script src="../photo/ControllerPhotos.js"></script>
-    <script src="../InsertFoto.js"></script>
-    <script src="../album.js"></script>
+  <footer></footer>
+
+  <script src="../utils/Generate.js"></script>
+  <script src="../models/ModelAlbum.js"></script>
+  <script src="../models/ModelPhoto.js"></script>
+  <script src="../controllers/ControllerAlbums.js"></script>
+  <script src="../controllers/ControllerPhotos.js"></script>
+  <script src="../InsertFoto.js"></script>
+  <script src="../album.js"></script>
+
   </body>
 </html>
