@@ -1,68 +1,55 @@
+import { ControllerUsers } from "./User/ControllerUsers";
+const controllerUsers = new ControllerUsers();
+
 class Login {
   #usersController;
 
   constructor() {
-    this.#usersController = new ControllerUsers();
+    this.#usersController = controllerUsers;
   }
 
   initLogin() {
-    document
-      .getElementById("login-form")
-      .addEventListener("submit", (event) => {
-        event.preventDefault();
+    const loginForm = document.getElementById("login-form");
+    const loginMessage = document.getElementById("login-message");
+    const loginUsername = document.getElementById("login-username");
+    const loginPassword = document.getElementById("login-password");
 
-        const username = document.getElementById("login-username").value;
-        const password = document.getElementById("login-password").value;
+    loginForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-        // Recuperare la lista degli account dal localStorage
-        let accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+      const username = loginUsername.value;
+      const password = loginPassword.value;
 
-        // Verificare se la lista degli account esiste
-        if (!accounts.length) {
-          document.getElementById("login-message").innerHTML =
-            "No accounts found";
-          return;
-        }
+      const accounts = this.#usersController.getAccounts();
 
-        // Filtrare la lista degli account per trovare un account con lo stesso username
-        let accountInLocalStorage = accounts.filter(
-          (value) => value.username === username
-        );
+      if (!accounts.length) {
+        loginMessage.innerHTML = "No accounts found";
+        return;
+      }
 
-        // Verificare se l'account esiste
-        if (!accountInLocalStorage.length) {
-          document.getElementById("login-message").innerHTML =
-            "Username o password non validi";
-          return;
-        }
+      const accountInLocalStorage = accounts.find(
+        (account) => account.username === username
+      );
 
-        // Verificare se le credenziali sono corrette
-        const user = accountInLocalStorage[0];
-        if (user.password !== password) {
-          document.getElementById("login-message").innerHTML =
-            "Username o password non validi";
-          return;
-        }
+      if (!accountInLocalStorage) {
+        loginMessage.innerHTML = "Username o password non validi";
+        return;
+      }
 
-        // Stampa un messaggio di conferma
-        document.getElementById(
-          "login-message"
-        ).innerHTML = `Account ${user.username} logged in successfully`;
-        console.log("account loggato con successo!");
+      if (accountInLocalStorage.password !== password) {
+        loginMessage.innerHTML = "Username o password non validi";
+        return;
+      }
 
-        // Reindirizza alla pagina profilo.html
-        window.location.href = "profile.html";
-      });
+      loginMessage.innerHTML = `Account ${accountInLocalStorage.username} logged in successfully`;
+      console.log("account loggato con successo!");
+      window.location.href = "profile.html";
+    });
   }
 
   run() {
     console.log("app avviata");
-
-    // Ascolto il pulsante di login
-    document.getElementById("login-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      this.initLogin();
-    });
+    this.initLogin();
   }
 }
 

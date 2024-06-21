@@ -1,8 +1,21 @@
+import { ModelAlbum } from "./ModelAlbum";
+
 class ControllerAlbums {
   constructor() {
-    this.albums = this.loadLocalStorage() || []; // Inizializza la lista degli album caricandola da localStorage se presente
+    this.albums = this.loadLocalStorage() || [];
   }
 
+  // Carica la lista degli album da localStorage
+  loadLocalStorage() {
+    return JSON.parse(localStorage.getItem("albums"));
+  }
+
+  // Salva la lista degli album in localStorage
+  saveLocalStorage() {
+    localStorage.setItem("albums", JSON.stringify(this.albums));
+  }
+
+  // Crea un nuovo album
   createAlbum(title, description, date) {
     let album = this.albums.find((album) => album.title === title);
     if (!album) {
@@ -13,15 +26,18 @@ class ControllerAlbums {
     return album;
   }
 
+  // Legge un album specifico
   read(id) {
     return this.albums.find((album) => album.id === id);
   }
 
+  // Cancella un album
   delete(id) {
     this.albums = this.albums.filter((album) => album.id !== id);
     this.saveLocalStorage();
   }
 
+  // Aggiunge una foto a un album
   addImage(id, image) {
     const album = this.albums.find((album) => album.id === id);
     if (album) {
@@ -30,6 +46,7 @@ class ControllerAlbums {
     }
   }
 
+  // Cancella una foto da un album
   deleteImage(albumId, imageId) {
     const albumIndex = this.albums.findIndex((album) => album.id === albumId);
     if (albumIndex !== -1) {
@@ -40,6 +57,7 @@ class ControllerAlbums {
     }
   }
 
+  // Aggiorna le informazioni di un album
   update(id, title, description, date) {
     const albumToUpdate = this.albums.find((album) => album.id === id);
 
@@ -54,20 +72,14 @@ class ControllerAlbums {
     if (description !== undefined) {
       albumToUpdate.description = description;
     }
+
     if (date !== undefined) {
       albumToUpdate.date = date;
     }
+
     this.saveLocalStorage();
     return albumToUpdate;
   }
-
-  // Metodo per salvare la lista degli album in localStorage
-  saveLocalStorage() {
-    localStorage.setItem("albums", JSON.stringify(this.albums));
-  }
-
-  // Metodo per caricare la lista degli album da localStorage
-  loadLocalStorage() {
-    return JSON.parse(localStorage.getItem("albums"));
-  }
 }
+
+export { ControllerAlbums };

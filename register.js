@@ -1,10 +1,14 @@
+import { ControllerUsers } from "./User/ControllerUsers";
+const controllerUsers = new ControllerUsers();
+
 class Register {
   #usersController;
 
   constructor() {
-    this.#usersController = new ControllerUsers();
+    this.#usersController = controllerUsers;
   }
 
+  // Funzione per la registrazione dell'account
   registerAccount() {
     const signupForm = document.getElementById("signup-form");
     const name = signupForm.name.value;
@@ -36,7 +40,7 @@ class Register {
           "register-message"
         ).innerHTML = `Account ${user.username} created successfully`;
         console.log("account creato");
-        // Reindirizzare l'utente alla pagina di login
+        // Reindirizza l'utente alla pagina di login
         window.location.href = "login.html";
       } else {
         document.getElementById("register-message").innerHTML =

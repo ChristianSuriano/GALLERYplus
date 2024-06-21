@@ -1,3 +1,5 @@
+import { Generate } from "../utils/Generate";
+
 class ModelPhoto {
   constructor(title, url, description, tag) {
     this.id = Generate.generateUUID();
@@ -7,3 +9,5 @@ class ModelPhoto {
     this.description = description;
   }
 }
+
+export { ModelPhoto };

@@ -1,3 +1,5 @@
+import { ControllerAlbums } from './Album/ControllerAlbums';
+
 document.addEventListener("DOMContentLoaded", function () {
   const controller = new ControllerAlbums();
   const albumForm = document.getElementById("albumForm");
@@ -15,13 +17,21 @@ document.addEventListener("DOMContentLoaded", function () {
           <span class="album-title" contenteditable="true">${album.title}</span>
           <button class="save-title">Save</button>
         </h3>
-        <p>Description: <span class="album-description" contenteditable="true">${album.description}</span></p>
-        <p>Date: <input type="date" class="album-date" value="${album.date}"></p>
+        <p>Description: <span class="album-description" contenteditable="true">${
+          album.description
+        }</span></p>
+        <p>Date: <input type="date" class="album-date" value="${
+          album.date
+        }"></p>
         <p>ID: ${album.id}</p>
         <h4>Photos:</h4>
         <div class="carousel-container">
           <ul class="carousel">
-            ${album.listPhotos.map((photo) => `<li><img src="${photo}" class="carouselIMG"></li>`).join("")}
+            ${album.listPhotos
+              .map(
+                (photo) => `<li><img src="${photo}" class="carouselIMG"></li>`
+              )
+              .join("")}
           </ul>
         </div>
         <button class="remove-button" data-id="${album.id}">Cancella</button>
@@ -30,7 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Event listener per salvare il nuovo titolo, descrizione e data
       const titleElement = albumElement.querySelector(".album-title");
-      const descriptionElement = albumElement.querySelector(".album-description");
+      const descriptionElement =
+        albumElement.querySelector(".album-description");
       const dateElement = albumElement.querySelector(".album-date");
       const saveButton = albumElement.querySelector(".save-title");
 
@@ -38,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const newTitle = titleElement.innerText;
         const newDescription = descriptionElement.innerText;
         const newDate = dateElement.value;
-        controller.update(album.id, newTitle, newDescription, newDate); // Passa i valori aggiornati al metodo update
+        controller.update(album.id, newTitle, newDescription, newDate);
         displayAlbums();
       });
 
@@ -47,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
       removeButton.addEventListener("click", function () {
         const albumId = parseInt(removeButton.getAttribute("data-id"));
         controller.delete(albumId);
-        albumsList.removeChild(albumElement); // Rimuove l'elemento dall'interfaccia
+        albumsList.removeChild(albumElement);
       });
     });
   }
@@ -64,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     deleteForm.reset();
   });
 
-  // Invio del form per creare un album
+  // Event listener per creare un album
   albumForm.addEventListener("submit", function (event) {
     event.preventDefault();
     const title = document.getElementById("title").value;
@@ -75,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
     albumForm.reset();
   });
 
-  // Invio del form per aggiungere un'immagine a un album
+  // Event listener per aggiungere un'immagine a un album
   imageForm.addEventListener("submit", function (event) {
     event.preventDefault();
     const albumId = document.getElementById("albumId").value;

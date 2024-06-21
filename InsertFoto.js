@@ -6,8 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const uploadButton = document.getElementById("uploadButton");
   const albumContainer = document.getElementById("albumContainer");
 
+  // Carica le immagini dal localStorage
   loadImagesFromLocalStorage();
 
+  // Event listener per l'upload delle immagini
   uploadButton.addEventListener("click", () => {
     const files = imageInput.files;
     const tag = tagInput.value.trim();
@@ -31,7 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const imageSrc = e.target.result;
           addImageToAlbum(imageSrc, tag, date, description);
           saveImageToLocalStorage(imageSrc, tag, date, description);
-          console.log("prova");
         };
         reader.readAsDataURL(file);
       } else {
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resetInputs();
   });
 
+  // Aggiunge un'immagine all'album
   function addImageToAlbum(imageSrc, tag, date, description) {
     let tagContainer = document.querySelector(`.album-tag[data-tag="${tag}"]`);
 
@@ -77,14 +79,15 @@ document.addEventListener("DOMContentLoaded", () => {
     tagContainer.appendChild(imgContainer);
   }
 
+  // Salva un'immagine nel localStorage
   function saveImageToLocalStorage(imageSrc, tag, date, description) {
     const imageData = { imageSrc, tag, date, description };
     let images = JSON.parse(localStorage.getItem("images")) || [];
     images.push(imageData);
     localStorage.setItem("images", JSON.stringify(images));
-    console.log("immagine salvata nel local storage");
   }
 
+  // Carica le immagini dal localStorage
   function loadImagesFromLocalStorage() {
     const images = JSON.parse(localStorage.getItem("images")) || [];
     images.forEach((imageData) => {
@@ -97,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Resetta gli input
   function resetInputs() {
     imageInput.value = "";
     tagInput.value = "";

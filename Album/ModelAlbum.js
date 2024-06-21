@@ -1,3 +1,5 @@
+import { Generate } from "../utils/Generate";
+
 class ModelAlbum {
   constructor(title, description, date) {
     this.id = Generate.generateUUID();
@@ -7,3 +9,5 @@ class ModelAlbum {
     this.date = date;
   }
 }
+
+export { ModelAlbum };
