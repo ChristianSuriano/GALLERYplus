@@ -1,9 +1,9 @@
 import { ControllerAlbums } from "../Album/ControllerAlbums";
 const controller = new ControllerAlbums();
 
-function writeAlbumList(albums) {
-  const albumsList = document.getElementById("album-list");
-  albumsList.innerHTML = "";
+function writeAlbumList(idNode, albums) {
+  const nodeElement = document.getElementById(idNode);
+  nodeElement.innerHTML = "";
 
   albums.forEach((album) => {
     const albumElement = document.createElement("div");
@@ -27,7 +27,7 @@ function writeAlbumList(albums) {
       </ul>
       <button class="remove-button">Cancella</button>
     `;
-    albumsList.appendChild(albumElement);
+    nodeElement.appendChild(albumElement);
 
     // Event listener per salvare il nuovo titolo, descrizione e data
     const titleElement = albumElement.querySelector(".album-title");
@@ -40,7 +40,7 @@ function writeAlbumList(albums) {
       const newDescription = descriptionElement.innerText;
       const newDate = dateElement.value;
       controller.update(album.id, newTitle, newDescription, newDate);
-      displayAlbums(controller.albums);
+      displayAlbums("album-list", controller.albums);
     });
 
     const removeButton = albumElement.querySelector(".remove-button");
@@ -48,14 +48,14 @@ function writeAlbumList(albums) {
       const albumId = parseInt(removeButton.getAttribute("data-id"));
       removeButton.setAttribute("");
       controller.delete(albumId);
-      albumsList.removeChild(albumElement); // Rimuove l'elemento dall'interfaccia
+      nodeElement.removeChild(albumElement); // Rimuove l'elemento dall'interfaccia
       controller.update(albumElement);
     });
   });
 }
 
-function displayAlbums(albums) {
-  writeAlbumList(albums);
+function displayAlbums(idNode, albums) {
+  writeAlbumList(idNode, albums);
 }
 
 export { writeAlbumList, displayAlbums };

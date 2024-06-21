@@ -46,9 +46,5 @@
   margin-top: 10px;
   font-size: 18px;
   color: #333;
-}
-
-/* Aggiungi una classe per il titolo dell'album */
-.album-title {
   font-weight: bold;
 }
