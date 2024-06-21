@@ -53,8 +53,6 @@
 
           <label for="image">Image URL:</label>
           <input type="text" id="image" name="image" required /><br /><br />
-          <label for="imageUrl">Image URL:</label>
-          <input type="text" id="imageUrl" name="image" /><br /><br />
 
           <label for="imageDate">Date:</label>
           <input type="date" id="imageDate" placeholder="Select date" /><br />
@@ -71,55 +69,30 @@
       </div>
 
       <div class="container-a">
-        <h2>Photo</h2>
-        <p>Carica foto singolarmente</p>
-        <form id="photo-form">
-          <label for="photoTitle">Title:</label>
-          <input type="text" id="photoTitle" name="title" /><br /><br />
-          <input type="file" id="photoImageInput" multiple />
-
-          <label for="photoImageUrl">Image URL:</label>
-          <input type="text" id="photoImageUrl" name="image" /><br /><br />
-
-          <label for="photoTag">Tag:</label>
-          <input type="text" id="photoTag" placeholder="Enter tag" />
-          <br /><br />
-          <label for="photoDate">Date:</label>
-          <input type="date" id="photoDate" placeholder="Select date" /><br />
-
-          <label for="photoDescription">Description:</label>
-          <input
-            type="text"
-            id="photoDescription"
-            placeholder="Enter description"
-          />
-
-          <button id="uploadButton" class="upload-button" type="button">
-            Upload Images
-          </button>
-        </form>
-        -->
+        <h2>Add Image to Profile</h2>
+        <input type="file" id="imageInput" multiple />
+        <input type="text" id="tagInput" placeholder="Enter title" /><br /><br />
+        <input type="date" id="dateInput" placeholder="Select date" /><br />
+        <input type="text" id="descriptionInput" placeholder="Enter description" />
+        <button id="uploadButton">Upload Images</button>
+      </div>
     </div>
 
     <div class="carousel-container">
       <div class="item">
         <div id="albumsList">
-          <!-- Display albums-->
+          <!-- Display albums -->
         </div>
       </div>
     </div>
 
-    <div id="albumContainer"></div>
-
-    <div class="containerAlbumList"><div id="albumsList"></div></div>
-
     <footer></footer>
 
     <script src="../utils/Generate.js"></script>
-    <script src="../models/ModelAlbum.js"></script>
-    <script src="../models/ModelPhoto.js"></script>
-    <script src="../controllers/ControllerAlbums.js"></script>
-    <script src="../controllers/ControllerPhotos.js"></script>
+    <script src="../album/ModelAlbum.js"></script>
+    <script src="../photo/ModelPhoto.js"></script>
+    <script src="../album/ControllerAlbums.js"></script>
+    <script src="../photo/ControllerPhotos.js"></script>
     <script src="../InsertFoto.js"></script>
     <script src="../album.js"></script>
   </body>
