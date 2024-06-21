@@ -30,13 +30,13 @@
           <label for="title">Title:</label>
           <input type="text" id="title" name="title" required /><br /><br />
 
-          <label for="description">Description:</label><br />
-          <textarea
-            id="description"
-            name="description"
-            rows="4"
-            cols="50"></textarea
-          ><br /><br />
+          <label for="albumDescription">Description:</label>
+          <input
+            type="text"
+            id="albumDescription"
+            placeholder="Enter description"
+          />
+          <br /><br />
 
           <label for="date">Date:</label>
           <input type="date" id="date" name="date" /><br /><br />
@@ -44,9 +44,6 @@
           <button type="submit" class="upload-button">Create Album</button>
         </form>
       </div>
-
-
-
 
       <div class="container-a">
         <h2>Add Image to Album</h2>
@@ -57,27 +54,35 @@
           <label for="image">Image URL:</label>
           <input type="text" id="image" name="image" required /><br /><br />
 
+          <label for="imageDate">Date:</label>
+          <input type="date" id="imageDate" placeholder="Select date" /><br />
+
+          <label for="imageDescription">Description:</label>
+          <input
+            type="text"
+            id="imageDescription"
+            placeholder="Enter description"
+          />
+
           <button type="submit" class="upload-button">Add Image</button>
         </form>
       </div>
 
-      
-          
-          <div class="container-a">
-            <h2>Add Image at your profile</h2>
-            <input type="file" id="imageInput" multiple>
-            <input type="text" id="tagInput" placeholder="Enter title"> <br><br>
-            <input type="date" id="dateInput" placeholder="Select date"><br>
-            <input type="text" id="descriptionInput" placeholder="Enter description">
-            <button id="uploadButton">Upload Images</button>    
-         </div>
+      <div class="container-a">
+        <h2>Add Image to Profile</h2>
+        <input type="file" id="imageInput" multiple />
+        <input type="text" id="tagInput" placeholder="Enter title" /><br /><br />
+        <input type="date" id="dateInput" placeholder="Select date" /><br />
+        <input type="text" id="descriptionInput" placeholder="Enter description" />
+        <button id="uploadButton">Upload Images</button>
+      </div>
     </div>
 
-    <div id="albumContainer"></div>
-
-    <div class="item">
-      <div id="albumsList">
-      
+    <div class="carousel-container">
+      <div class="item">
+        <div id="albumsList">
+          <!-- Display albums -->
+        </div>
       </div>
     </div>
 
@@ -89,6 +94,6 @@
     <script src="../album/ControllerAlbums.js"></script>
     <script src="../photo/ControllerPhotos.js"></script>
     <script src="../InsertFoto.js"></script>
-    <script src="../album.js" ></script>
+    <script src="../album.js"></script>
   </body>
 </html>

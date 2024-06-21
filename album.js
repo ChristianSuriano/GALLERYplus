@@ -19,14 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
         <p>Date: <input type="date" class="album-date" value="${album.date}"></p>
         <p>ID: ${album.id}</p>
         <h4>Photos:</h4>
-        <ul>
-          ${album.listPhotos
-            .map(
-              (photo) =>
-                `<li><img src="${photo}" style="max-width: 100px;"></li>`
-            )
-            .join("")}
-        </ul>
+        <div class="carousel-container">
+          <ul class="carousel">
+            ${album.listPhotos.map((photo) => `<li><img src="${photo}" class="carouselIMG"></li>`).join("")}
+          </ul>
+        </div>
         <button class="remove-button" data-id="${album.id}">Cancella</button>
       `;
       albumsList.appendChild(albumElement);
@@ -41,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const newTitle = titleElement.innerText;
         const newDescription = descriptionElement.innerText;
         const newDate = dateElement.value;
-        controller.update(album.id, newTitle, newDescription, newDate); // Pass the updated values to the update method
+        controller.update(album.id, newTitle, newDescription, newDate); // Passa i valori aggiornati al metodo update
         displayAlbums();
       });
 
@@ -88,4 +85,3 @@ document.addEventListener("DOMContentLoaded", function () {
     imageForm.reset();
   });
 });
-
