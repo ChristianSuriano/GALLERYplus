@@ -1,4 +1,3 @@
-
 class ControllerAlbums {
   constructor() {
     this.albums = this.loadLocalStorage() || []; // Inizializza la lista degli album caricandola da localStorage se presente
