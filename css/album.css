@@ -11,8 +11,8 @@ body {
 }
 
 .container-a {
-  padding-left: 10mm;
-  padding-right: 5mm;
+  padding: 5mm;
+
   margin: 5px; /* il margin agisce esternamente, spaziatura fra le scritte o i box*/
   height: 200hv;
   width: 200px;

@@ -4,7 +4,7 @@ body {
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f7f7f7;
+  background-color: #a3a3a3;
 }
 
 .container {
@@ -20,32 +20,44 @@ body {
 }
 
 .signup-form,
-.login-form,
 .photo-form {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  padding-left: 10mm;
+  padding-right: 5mm;
+  margin-top: 5%;
+  margin-left: 20px; /* il margin agisce esternamente, spaziatura fra le scritte o i box*/
+  width: 40%;
+  background-color: rgb(235, 235, 235);
+  box-shadow: 0px 0px 30px #1e1e1e2a;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+.signup-form:hover {
+  background-color: white;
+}
+.login-form:hover {
+  background-color: white;
+}
+.photo-form:hover {
+  background-color: white;
 }
 
 .login-form {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  padding-left: 10mm;
+  padding-right: 5mm;
+  margin-top: 10%;
+  margin-left: 20px; /* il margin agisce esternamente, spaziatura fra le scritte o i box*/
+  width: 40%;
+  background-color: rgb(235, 235, 235);
+  box-shadow: 0px 0px 30px #1e1e1e2a;
+  border-radius: 20px;
+  transition: 0.5s;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 350%;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #333;
+  color: #141414;
 }
 
 .form-group,

@@ -126,8 +126,16 @@ input[type="date"]:hover {
 
 /* GRIGLIA */
 
-/* .grid {
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-auto-rows: 300px;
-} */
+}
+.backgroundlogin {
+  background-image: url("../assets/img/bg1.png");
+  background-size: cover;
+}
+.backgroundRegister {
+  background-image: url("../assets/img/bg2.png");
+  background-size: cover;
+}
