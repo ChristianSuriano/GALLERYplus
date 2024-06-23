@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="../css/profile.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css"/>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container mt-5">
+        <div id="photoContainer">
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <button type="button" class="floating-btn" data-bs-toggle="modal" data-bs-target="#addPhotoModal">
+        <div class="plus-icon"></div>
+    </button>
+
+    <!-- Add Photo Modal -->
+    <div class="modal fade" id="addPhotoModal" tabindex="-1" aria-labelledby="addPhotoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPhotoModalLabel">Aggiungi Foto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addPhotoForm">
+                        <div class="mb-3">
+                            <label for="photoTitle" class="form-label">Titolo</label>
+                            <input type="text" class="form-control" id="photoTitle" name="title" placeholder="Lorem ipsum dolor..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="photoDesc" class="form-label">Descrizione</label>
+                            <input type="text" class="form-control" id="photoDesc" name="desc" placeholder="Lorem ipsum dolor..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="photoUrl" class="form-label">Url o Percorso</label>
+                            <input type="text" class="form-control" id="photoUrl" name="url" placeholder="http://example.com/img.png" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Aggiungi Foto</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Photo Modal -->
+    <div class="modal fade" id="editPhotoModal" tabindex="-1" aria-labelledby="editPhotoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editPhotoModalLabel">Modifica Foto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editPhotoForm">
+                        <input type="hidden" id="editPhotoId" name="id">
+                        <div class="mb-3">
+                            <label for="editPhotoTitle" class="form-label">Titolo</label>
+                            <input type="text" class="form-control" id="editPhotoTitle" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPhotoDesc" class="form-label">Descrizione</label>
+                            <input type="text" class="form-control" id="editPhotoDesc" name="desc" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editPhotoUrl" class="form-label">URL o Percorso</label>
+                            <input type="text" class="form-control" id="editPhotoUrl" name="url" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Salva Modifiche</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer></footer>
+
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script type="module" src="../js/InsertFoto.js"></script>
+    <script type="module" src="../js/utils/renderNavbar.js"></script>
+
+</body>
+</html>
