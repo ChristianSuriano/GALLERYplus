@@ -40,7 +40,9 @@ class Register {
         ).innerHTML = `Account ${user.username} created successfully`;
         console.log("account creato");
         // Reindirizzare l'utente alla pagina di login
-        window.location.href = "login.html";
+        setTimeout(function(){
+           window.location.href = "login.html";
+        }, 3000);       
       } else {
         document.getElementById("register-message").innerHTML =
           "Account already exists";
