@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+#backgrounds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(50px); /* Applica uno sfocatura all'immagine di sfondo */
+  transition: opacity 3s ease-in-out, filter 3s ease-in-out; /* Transizione graduale di opacità e sfocatura */
+  opacity: 0;
+}
+
+.background.active {
+  opacity: 1;
+  filter: blur(5px); /* Rimuovi lo sfocatura quando l'immagine è attiva */
+}
+
+#landing-page-container {
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#logo {
+  font-size: 4rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#motto {
+  font-size: 1.5rem;
+}
+
+.ref {
+  margin-left: 10px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#img {
+  margin-left: 10px;
+  scale: 2;
+  transition: transform 0.5s;
+}
+
+#img:hover {
+  transform: rotate(3.142rad);
+}
+
+.ref:hover {
+  background-color: #eaeaea;
+  color: #1e1f2d;
+}

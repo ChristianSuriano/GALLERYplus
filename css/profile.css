@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Reset dei margini e dei padding per il body */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Stili per i contenitori principali */
+.container-album {
+  display: flex;
+  justify-content: space-around; /* Distribuisce i contenitori in modo uniforme */
+  flex-wrap: wrap; /* Consente al contenitore di avvolgersi se il contenuto supera la larghezza */
+  margin-top: 20px;
+}
+.container-a:hover {
+  background-color: white;
+}
+.container-a {
+  flex: 1; /* Ogni riquadro occupa una parte uguale dello spazio disponibile */
+  padding: 20px; /* Aggiungiamo spazio interno per migliorare la leggibilità */
+  margin: 5px;
+  transition: 0.5s;
+}
+
+/* Stili per i form e i pulsanti */
+form {
+  margin-bottom: 0; /* Rimuove lo spazio inferiore aggiunto dai form */
+}
+
+input {
+  border-radius: 10px;
+  border: none;
+  background-color: #d1d1d1;
+  transition: 0.5s;
+}
+
+input:hover {
+  background-color: #ebebeb;
+}
+input:hover {
+  background-color: #ebebeb;
+}
+
+.upload-button {
+  padding: 2%;
+  background-color: #c8c8c8;
+  color: #2a2a2a;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 2% 2% 2% 70%;
+  font-size: 300%;
+  box-shadow: 0 0 30px #1e1e1e2a;
+  transition: 0.5s;
+}
+.upload-button:hover {
+  background-color: #2a2a2a;
+  color: #f8f8f8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 300px;
+}
+.backgroundlogin {
+  background-image: url("../static/img/bg1.png");
+  background-size: cover;
+}
+.backgroundRegister {
+  background-image: url("../static/img/bg2.png");
+  background-size: cover;
+}
+
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+.plus-icon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.plus-icon::before, .plus-icon::after {
+  content: '';
+  position: absolute;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.plus-icon::before {
+  width: 100%;
+  height: 2px;
+  top: calc(50% - 1px);
+  left: 0;
+}
+
+.plus-icon::after {
+  height: 100%;
+  width: 2px;
+  top: 0;
+  left: calc(50% - 1px);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.col-md-3:hover .overlay {
+  opacity: 1;
+}
