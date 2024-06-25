@@ -1,3 +1,5 @@
+http://127.0.0.1:5500/pages/index.html
+
 ### Gallery+ 📸✨
 
 Gallery+ è un’applicazione per la fotografia che consente agli utenti di gestire le proprie foto. Gli utenti possono creare un profilo, aggiungere o eliminare foto dagli album e utilizzare filtri di ricerca per trovare foto di altri utenti. Le funzioni principali includono l’aggiunta e la rimozione di foto, nonché la possibilità di filtrare le foto per tag. Questa piattaforma fornisce uno spazio semplice e diretto per gli amanti della fotografia per condividere e cercare immagini.
@@ -12,9 +14,7 @@ Gallery+ è un’applicazione per la fotografia che consente agli utenti di gest
 
 1. **Login** 🔑:
    - L'utente potrà inserire Nome, Cognome, Username, Email e Password.
-2. **Album** 📚:
-   - L'utente potrà creare un Album, contenente una o più foto, modificare titolo, descrizione e data dell'album, eliminare foto.
-3. **Foto** 🖼️:
+2. **Foto** 🖼️:
    - L'utente può inserire le foto da aggiungere agli album, e aggiungere e/o modificare titolo, URL, descrizione e tag, e ovviamente eliminare foto.
 
 Goditi l'esperienza di Gallery+ e immergiti nel mondo della fotografia! 🌟📷✨
